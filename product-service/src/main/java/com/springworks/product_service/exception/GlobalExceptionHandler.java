@@ -10,12 +10,12 @@ import javax.security.sasl.AuthenticationException;
 @RestControllerAdvice
 public class GlobalExceptionHandler {
 
-    @ExceptionHandler(com.trainingmug.ecommerce.productservice.exception.ProductExistsException.class)
-    public ResponseEntity<String> handleProductExistsException(com.trainingmug.ecommerce.productservice.exception.ProductExistsException e) {
+    @ExceptionHandler(com.springworks.product_service.exception.ProductExistsException.class)
+    public ResponseEntity<String> handleProductExistsException(com.springworks.product_service.exception.ProductExistsException e) {
         return ResponseEntity.status(HttpStatus.CONFLICT).body(e.getMessage());
     }
-    @ExceptionHandler(com.trainingmug.ecommerce.productservice.exception.ProductNotFoundException.class)
-    public ResponseEntity<String> handleProductNotFoundException(com.trainingmug.ecommerce.productservice.exception.ProductNotFoundException e) {
+    @ExceptionHandler(com.springworks.product_service.exception.ProductNotFoundException.class)
+    public ResponseEntity<String> handleProductNotFoundException(com.springworks.product_service.exception.ProductNotFoundException e) {
         return ResponseEntity.status(HttpStatus.NOT_FOUND).body(e.getMessage());
     }
     @ExceptionHandler(AuthenticationException.class)

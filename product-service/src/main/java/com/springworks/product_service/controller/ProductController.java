@@ -1,5 +1,7 @@
 package com.springworks.product_service.controller;
 
+import com.springworks.product_service.enums.Category;
+import com.springworks.product_service.enums.Status;
 import lombok.RequiredArgsConstructor;
 import org.springframework.data.domain.Page;
 import org.springframework.http.HttpStatus;
@@ -34,7 +36,7 @@ public class ProductController {
      */
 
     @GetMapping("/{productId}")
-    public ResponseEntity<com.trainingmug.ecommerce.productservice.dto.response.ProductResponseDto> getProductById(
+    public ResponseEntity<com.springworks.product_service.dto.response.ProductResponseDto> getProductById(
             @PathVariable String productId) {
         return ResponseEntity.ok(productService.getById(productId));
     }
@@ -46,7 +48,7 @@ public class ProductController {
      */
 
     @GetMapping
-    public ResponseEntity<List<com.trainingmug.ecommerce.productservice.dto.response.ProductResponseDto>> getAll() {
+    public ResponseEntity<List<com.springworks.product_service.dto.response.ProductResponseDto>> getAll() {
         return ResponseEntity.ok(productService.getAll());
     }
 
@@ -57,9 +59,9 @@ public class ProductController {
      */
 
     @PutMapping("/{productId}")
-    public ResponseEntity<com.trainingmug.ecommerce.productservice.dto.response.ProductResponseDto> update(
+    public ResponseEntity<com.springworks.product_service.dto.response.ProductResponseDto> update(
             @PathVariable String productId,
-            @RequestBody com.trainingmug.ecommerce.productservice.dto.request.ProductUpdateRequestDto requestDto) {
+            @RequestBody com.springworks.product_service.dto.request.ProductUpdateRequestDto requestDto) {
 
         return ResponseEntity.ok(productService.update(
                 productId,
@@ -86,7 +88,7 @@ public class ProductController {
      */
 
     @GetMapping("/pagination")
-    public ResponseEntity<Page<com.trainingmug.ecommerce.productservice.dto.response.ProductResponseDto>> getAllByPage(
+    public ResponseEntity<Page<com.springworks.product_service.dto.response.ProductResponseDto>> getAllByPage(
             @RequestParam int page,
             @RequestParam int size,
             @RequestParam String sortBy) {
@@ -105,7 +107,7 @@ public class ProductController {
      */
 
     @GetMapping("/category/{category}")
-    public ResponseEntity<List<com.trainingmug.ecommerce.productservice.dto.response.ProductResponseDto>> getProductsByCategory(
+    public ResponseEntity<List<com.springworks.product_service.dto.response.ProductResponseDto>> getProductsByCategory(
             @PathVariable Category category) {
         return ResponseEntity.ok(productService.getByCategory(category));
     }
@@ -117,7 +119,7 @@ public class ProductController {
      */
 
     @GetMapping("/status/{status}")
-    public ResponseEntity<List<com.trainingmug.ecommerce.productservice.dto.response.ProductResponseDto>> getProductsByStatus(
+    public ResponseEntity<List<com.springworks.product_service.dto.response.ProductResponseDto>> getProductsByStatus(
             @PathVariable Status status) {
 
         return ResponseEntity.ok(productService.getByStatus(status));
@@ -130,7 +132,7 @@ public class ProductController {
      */
 
     @GetMapping("/top-rated")
-    public ResponseEntity<List<com.trainingmug.ecommerce.productservice.dto.response.ProductResponseDto>> getTopRatedProducts() {
+    public ResponseEntity<List<com.springworks.product_service.dto.response.ProductResponseDto>> getTopRatedProducts() {
         return ResponseEntity.ok(productService.getTopRatedProducts());
     }
 
@@ -141,7 +143,7 @@ public class ProductController {
      */
 
     @GetMapping("/search")
-    public ResponseEntity<List<com.trainingmug.ecommerce.productservice.dto.response.ProductResponseDto>> searchProducts(
+    public ResponseEntity<List<com.springworks.product_service.dto.response.ProductResponseDto>> searchProducts(
             @RequestParam String keyword) {
 
         return ResponseEntity.ok(productService.searchProducts(keyword));
@@ -154,7 +156,7 @@ public class ProductController {
      */
 
     @GetMapping("/count-by-category")
-    public ResponseEntity<List<com.trainingmug.ecommerce.productservice.dto.response.CategoryCountDto>> countProductsByCategory() {
+    public ResponseEntity<List<com.springworks.product_service.dto.response.CategoryCountDto>> countProductsByCategory() {
         return ResponseEntity.ok(productService.countProductsByCategory());
     }
 
@@ -165,7 +167,7 @@ public class ProductController {
      */
 
     @GetMapping("/count-by-company")
-    public ResponseEntity<List<com.trainingmug.ecommerce.productservice.dto.response.CompanyCountDto>> countProductsByCompany() {
+    public ResponseEntity<List<com.springworks.product_service.dto.response.CompanyCountDto>> countProductsByCompany() {
         return ResponseEntity.ok(productService.countProductsByCompany());
     }
 
@@ -176,7 +178,7 @@ public class ProductController {
      */
 
     @GetMapping("/count-by-status")
-    public ResponseEntity<List<com.trainingmug.ecommerce.productservice.dto.response.StatusCountDto>> countProductsByStatus() {
+    public ResponseEntity<List<com.springworks.product_service.dto.response.StatusCountDto>> countProductsByStatus() {
 
         return ResponseEntity.ok(productService.countProductsByStatus());
     }

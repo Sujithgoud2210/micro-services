@@ -1,18 +1,18 @@
-package com.trainingmug.ecommerce.productservice.service.impl;
+package com.springworks.product_service.service.impl;
 
 
-import com.trainingmug.ecommerce.productservice.dto.request.ProductRequestDto;
-import com.trainingmug.ecommerce.productservice.dto.request.ProductUpdateRequestDto;
-import com.trainingmug.ecommerce.productservice.dto.response.CategoryCountDto;
-import com.trainingmug.ecommerce.productservice.dto.response.CompanyCountDto;
-import com.trainingmug.ecommerce.productservice.dto.response.ProductResponseDto;
-import com.trainingmug.ecommerce.productservice.dto.response.StatusCountDto;
-import com.trainingmug.ecommerce.productservice.entity.Product;
-import com.trainingmug.ecommerce.productservice.enums.Category;
-import com.trainingmug.ecommerce.productservice.enums.Status;
-import com.trainingmug.ecommerce.productservice.exception.ProductNotFoundException;
-import com.trainingmug.ecommerce.productservice.repository.ProductRepository;
-import com.trainingmug.ecommerce.productservice.service.ProductService;
+import com.springworks.product_service.dto.request.ProductRequestDto;
+import com.springworks.product_service.dto.request.ProductUpdateRequestDto;
+import com.springworks.product_service.dto.response.CategoryCountDto;
+import com.springworks.product_service.dto.response.CompanyCountDto;
+import com.springworks.product_service.dto.response.ProductResponseDto;
+import com.springworks.product_service.dto.response.StatusCountDto;
+import com.springworks.product_service.entity.Product;
+import com.springworks.product_service.enums.Category;
+import com.springworks.product_service.enums.Status;
+import com.springworks.product_service.exception.ProductNotFoundException;
+import com.springworks.product_service.repository.ProductRepository;
+import com.springworks.product_service.service.ProductService;
 import lombok.RequiredArgsConstructor;
 import org.modelmapper.ModelMapper;
 import org.springframework.data.domain.Page;
