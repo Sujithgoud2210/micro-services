@@ -6,7 +6,7 @@ spring:
     driver-class-name: com.mysql.cj.jdbc.Driver
     url: jdbc:mysql://localhost:3306/user_db?createDatabaseIfNotExist=true
     username: root
-    password: root
+    password: Sujith-22
   jpa:
     hibernate:
       ddl-auto: create
@@ -26,3 +26,9 @@ eureka:
     fetch-registry: true
 server:
   port: 8081
+
+jwt:
+    secret: mySecretKey123456789
+    validity:
+      accessToken: 3600000
+      refreshToken: 86400000

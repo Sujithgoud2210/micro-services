@@ -1,12 +1,13 @@
 package com.springworks.user_service.security;
 
+import com.auth0.jwt.JWT;
+import com.auth0.jwt.algorithms.Algorithm;
 import com.auth0.jwt.exceptions.JWTVerificationException;
 import com.auth0.jwt.interfaces.DecodedJWT;
 import com.springworks.user_service.entity.User;
 import jakarta.servlet.http.HttpServletRequest;
 import lombok.Data;
 import lombok.extern.slf4j.Slf4j;
-import org.bouncycastle.crypto.threshold.ShamirSecretSplitter;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.http.HttpHeaders;
 import org.springframework.stereotype.Component;
@@ -14,8 +15,6 @@ import org.springframework.stereotype.Component;
 import java.nio.charset.StandardCharsets;
 import java.util.Date;
 import java.util.List;
-
-import static org.springframework.security.config.Elements.JWT;
 
 @Data
 @Slf4j
@@ -34,7 +33,7 @@ public class JwtUtil {
     private String SECRET;
 
     public String generateAccessToken(User user) {
-        ShamirSecretSplitter.Algorithm algorithm = ShamirSecretSplitter.Algorithm.HMAC256(SECRET.getBytes(StandardCharsets.UTF_8));
+        Algorithm algorithm = Algorithm.HMAC256(SECRET.getBytes(StandardCharsets.UTF_8));
         return JWT.create()
                 .withSubject(user.getEmail())
                 .withExpiresAt(new Date(System.currentTimeMillis() + ACCESS_TOKEN_VALIDITY_DURATION))
@@ -45,7 +44,7 @@ public class JwtUtil {
     }
 
     public String generateRefreshToken(User user) {
-        ShamirSecretSplitter.Algorithm algorithm = ShamirSecretSplitter.Algorithm.HMAC256(SECRET.getBytes(StandardCharsets.UTF_8));
+        Algorithm algorithm = Algorithm.HMAC256(SECRET.getBytes(StandardCharsets.UTF_8));
         return JWT.create()
                 .withSubject(user.getEmail())
                 .withExpiresAt(new Date(System.currentTimeMillis() + REFRESH_TOKEN_VALIDITY_DURATION))
@@ -65,7 +64,7 @@ public class JwtUtil {
     }
 
     private DecodedJWT getDecodedToken(String token) throws JWTVerificationException {
-        ShamirSecretSplitter.Algorithm algorithm = ShamirSecretSplitter.Algorithm.HMAC256(SECRET.getBytes(StandardCharsets.UTF_8));
+        Algorithm algorithm = Algorithm.HMAC256(SECRET.getBytes(StandardCharsets.UTF_8));
         return JWT.require(algorithm).build().verify(token);
     }
 

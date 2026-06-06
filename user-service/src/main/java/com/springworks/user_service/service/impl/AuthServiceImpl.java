@@ -6,6 +6,7 @@ import com.springworks.user_service.dto.request.SignupRequestDto;
 import com.springworks.user_service.dto.response.AuthResponseDto;
 import com.springworks.user_service.dto.response.UserResponseDto;
 import com.springworks.user_service.entity.User;
+import com.springworks.user_service.exception.InvalidCredentialsException;
 import com.springworks.user_service.exception.UserExistsException;
 import com.springworks.user_service.exception.UserNotFoundException;
 import com.springworks.user_service.security.JwtUtil;

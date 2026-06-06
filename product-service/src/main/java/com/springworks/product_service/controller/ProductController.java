@@ -99,7 +99,6 @@ public class ProductController {
                 sortBy
         ));
     }
-
     /*
      -------------------------------------------------------
                     FILTER BY CATEGORY

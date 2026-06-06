@@ -29,4 +29,5 @@ public class SignupRequestDto {
 
     @NotNull(message = "Gender is required")
     private Gender gender;
+
 }

@@ -5,7 +5,6 @@ import com.springworks.user_service.enums.Role;
 import com.springworks.user_service.enums.Status;
 import jakarta.persistence.*;
 import lombok.Data;
-import org.springframework.data.annotation.Id;
 import org.springframework.security.core.GrantedAuthority;
 import org.springframework.security.core.authority.SimpleGrantedAuthority;
 import org.springframework.security.core.userdetails.UserDetails;
