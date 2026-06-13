@@ -1,6 +1,8 @@
 package src.main.java.com.springworks.api_gateway_service;
 
 
+import org.springframework.boot.SpringApplication;
+import org.springframework.boot.autoconfigure.SpringBootApplication;
 
 @SpringBootApplication
 public class ApiGatewayServiceApplication {
